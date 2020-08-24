@@ -3,12 +3,12 @@
 version: "2.3"
 
 services:
-  lms:
-    image: larsks/logitech-media-server
+  th-lms:
+    image: thomashollier/logitechmediaserver
     volumes:
       - /etc/localtime:/etc/localtime:ro
-      - squeezebox:/srv/squeezebox
-      - ${AUDIO_DIR}:/srv/music
+      - /media/Media/lms:/lms/config
+      - /media/Media/media_files/Music:/lms/music
     ports:
 ## uncomment the following line if you want to be able to
 ## access the web ui on port 80.
@@ -20,5 +20,3 @@ services:
     restart: always
     init: true
 
-volumes:
-  squeezebox:
